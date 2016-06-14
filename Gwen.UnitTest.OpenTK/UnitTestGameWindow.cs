@@ -7,6 +7,7 @@ using OpenTK.Input;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using Gwen.Control;
+using Gwen.Skin;
 
 namespace Gwen.UnitTest.OpenTK
 {
@@ -125,7 +126,8 @@ namespace Gwen.UnitTest.OpenTK
 			//m_Renderer = new Gwen.Renderer.OpenTK.OpenTKGL20();
 			m_Renderer = new Gwen.Renderer.OpenTK.OpenTKGL40();
 
-			m_Skin = new Gwen.Skin.TexturedBase(m_Renderer, "DefaultSkin.png");
+			m_Skin = new Gwen.Skin.TexturedBase(m_Renderer, "DefaultSkin2.png");
+            
 			m_Skin.DefaultFont = new Font(m_Renderer, "Arial", 11);
 			m_Canvas = new Canvas(m_Skin);
 			m_Input = new Gwen.Renderer.OpenTK.Input.OpenTK(this);
@@ -133,7 +135,7 @@ namespace Gwen.UnitTest.OpenTK
 
 			m_Canvas.SetSize(Width, Height);
 			m_Canvas.ShouldDrawBackground = true;
-			m_Canvas.BackgroundColor = new Color(255, 150, 170, 170);
+			m_Canvas.BackgroundColor = m_Skin.Colors.ModalBackground;
 
 			if (Configuration.RunningOnMacOS)
 				m_Canvas.Scale = 1.5f;
