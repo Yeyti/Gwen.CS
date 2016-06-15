@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using OpenTK.Graphics.OpenGL;
-
+using DDSSuply;
 using PixelFormat = System.Drawing.Imaging.PixelFormat;
 
 namespace Gwen.Renderer.OpenTK
@@ -354,15 +354,30 @@ namespace Gwen.Renderer.OpenTK
 		public override void LoadTextureStream(Texture t, System.IO.Stream data)
 		{
 			Bitmap bmp;
-			try
-			{
-				bmp = new Bitmap(data);
-			}
-			catch (Exception)
-			{
-				t.Failed = true;
-				return;
-			}
+		    string s = t.Name.Substring(t.Name.Length - 4);
+		    if (s == "dds" || s == "DDS"){
+                try
+                {
+                    bmp = DDS.LoadImage(t.Name);
+                }
+                catch (Exception)
+                {
+                    t.Failed = true;
+                    return;
+                }
+            }
+		    else{
+                try
+                {
+                    bmp = new Bitmap(t.Name);
+                }
+                catch (Exception)
+                {
+                    t.Failed = true;
+                    return;
+                }
+            }
+			
 
 			LoadTextureInternal(t, bmp);
 			bmp.Dispose();
