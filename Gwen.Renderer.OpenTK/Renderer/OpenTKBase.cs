@@ -337,24 +337,33 @@ namespace Gwen.Renderer.OpenTK
 		public override void LoadTexture(Texture t)
 		{
 			Bitmap bmp;
-			try
-			{
-				bmp = new Bitmap(t.Name);
-			}
-			catch (Exception)
-			{
-				t.Failed = true;
-				return;
-			}
-
-			LoadTextureInternal(t, bmp);
+            string s = t.Name.Substring(t.Name.Length - 3);
+		    if (s == "dds" || s == "DDS"){
+		        try{
+		            bmp = DDS.LoadImage(t.Name);
+		        }
+		        catch (Exception){
+		            t.Failed = true;
+		            return;
+		        }
+		    }
+		    else{
+		        try{
+		            bmp = new Bitmap(t.Name);
+		        }
+		        catch (Exception){
+		            t.Failed = true;
+		            return;
+		        }
+		    }
+		    LoadTextureInternal(t, bmp);
 			bmp.Dispose();
 		}
 
 		public override void LoadTextureStream(Texture t, System.IO.Stream data)
 		{
 			Bitmap bmp;
-		    string s = t.Name.Substring(t.Name.Length - 4);
+		    string s = t.Name.Substring(t.Name.Length - 3);
 		    if (s == "dds" || s == "DDS"){
                 try
                 {

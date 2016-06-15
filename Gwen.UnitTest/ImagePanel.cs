@@ -15,7 +15,7 @@ namespace Gwen.UnitTest
 				img.Margin = Margin.Five;
 				img.Dock = Dock.Top;
 				img.Size = new Size(100, 100);
-				img.ImageName = "gwen.png";
+				img.ImageName = "tex.dds";
             }
 
             /* Missing */

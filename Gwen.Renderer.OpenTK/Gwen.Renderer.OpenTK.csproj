@@ -49,8 +49,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DDS">
-      <HintPath>..\Lib\DDS.dll</HintPath>
+    <Reference Include="DDSSyply">
+      <HintPath>..\Lib\DDSSyply.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data.Linq" />
