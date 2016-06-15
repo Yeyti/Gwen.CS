@@ -332,6 +332,7 @@ namespace Gwen.Renderer.OpenTK
 			}
 
 			bmp.UnlockBits(data);
+            bmp.Dispose();
 		}
 
 		public override void LoadTexture(Texture t)
@@ -434,6 +435,7 @@ namespace Gwen.Renderer.OpenTK
 			// Eventually the bug needs to be fixed (color picker in a window causes graphical errors), but for now,
 			// this is fine.
 			GL.BindTexture(TextureTarget.Texture2D, m_LastTextureID);
+            
 		}
 
 		public override void FreeTexture(Texture t)

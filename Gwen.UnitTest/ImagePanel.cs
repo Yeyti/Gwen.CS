@@ -18,6 +18,10 @@ namespace Gwen.UnitTest
 				img.ImageName = "tex.dds";
             }
 
+            
+                
+            
+
             /* Missing */
             {
                 Control.ImagePanel img = new Control.ImagePanel(this);

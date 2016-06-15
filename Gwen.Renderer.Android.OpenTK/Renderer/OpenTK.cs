@@ -540,7 +540,9 @@ namespace Gwen.Renderer.Android.OpenTK
 
 			IntPtr data = bmp.LockPixels();
 			GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, t.Width, t.Height, 0, global::OpenTK.Graphics.ES20.PixelFormat.Rgba, PixelType.UnsignedByte, data);
+            
 			bmp.UnlockPixels();
+		    bmp.Dispose();
 		}
 
 		public override void LoadTexture(Texture t)
@@ -613,8 +615,9 @@ namespace Gwen.Renderer.Android.OpenTK
 			int tex = (int)t.RendererData;
 			if (tex == 0)
 				return;
-			GL.DeleteTextures(1, ref tex);
-			t.RendererData = null;
+			//GL.DeleteTextures(1, ref tex);
+            GL.DeleteTexture(tex);
+            t.RendererData = null;
 		}
 
 		public override unsafe Color PixelColor(Texture texture, uint x, uint y, Color defaultColor)
