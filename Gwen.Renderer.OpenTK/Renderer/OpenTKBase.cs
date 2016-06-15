@@ -367,16 +367,14 @@ namespace Gwen.Renderer.OpenTK
                 }
             }
 		    else{
-                try
-                {
-                    bmp = new Bitmap(t.Name);
-                }
-                catch (Exception)
-                {
-                    t.Failed = true;
-                    return;
-                }
-            }
+		        try{
+		            bmp = new Bitmap(t.Name);
+		        }
+		        catch (Exception){
+		            t.Failed = true;
+		            return;
+		        }
+		    }
 			
 
 			LoadTextureInternal(t, bmp);
