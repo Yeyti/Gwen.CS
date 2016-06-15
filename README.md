@@ -12,3 +12,6 @@ Original GWEN can be found from https://github.com/garrynewman/GWEN and Gwen.Net
 - MAC (tested on OS X 10.11)
 - Android (tested on 4.4 API 19)
 - iOS (tested on iOS 9.0)
+
+### Updates
+15.06.2016 : DDS Картинки
