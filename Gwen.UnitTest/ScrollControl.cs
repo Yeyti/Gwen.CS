@@ -71,7 +71,7 @@ namespace Gwen.UnitTest
 				ctrl.Margin = Margin.Three;
 				ctrl.Size = new Size(100, 100);
 				ctrl.EnableScroll(true, false);
-
+                
 				pTestButton = new Control.Button(ctrl);
 				pTestButton.Text = "Horizontal";
 				pTestButton.Size = new Size(200, 200);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using OpenTK;
 using OpenTK.Input;
 using OpenTK.Graphics;
@@ -165,25 +166,28 @@ namespace Gwen.UnitTest.OpenTK
 		/// <remarks>There is no need to call the base implementation.</remarks>
 		protected override void OnUpdateFrame(FrameEventArgs e)
 		{
-			m_TotalTime += (float)e.Time;
+
+            m_UnitTest.Fps = base.RenderFrequency;
+            /*m_TotalTime += (float)e.Time;
 			if (m_Ftime.Count == FpsFrames)
 				m_Ftime.RemoveAt(0);
-
-			m_Ftime.Add(m_Stopwatch.ElapsedMilliseconds - m_LastTime);
+                */
+            /*m_Ftime.Add(m_Stopwatch.ElapsedMilliseconds - m_LastTime);
 			m_LastTime = m_Stopwatch.ElapsedMilliseconds;
-			
-			if (m_Stopwatch.ElapsedMilliseconds > 1000)
-			{
-				//Debug.WriteLine (String.Format ("String Cache size: {0} Draw Calls: {1} Vertex Count: {2}", renderer.TextCacheSize, renderer.DrawCallCount, renderer.VertexCount));
-				m_UnitTest.Note = String.Format("String Cache size: {0} Draw Calls: {1} Vertex Count: {2}", m_Renderer.TextCacheSize, m_Renderer.DrawCallCount, m_Renderer.VertexCount);
-				m_UnitTest.Fps = 1000f * m_Ftime.Count / m_Ftime.Sum();
+			*/
 
-				m_Stopwatch.Restart();
+            /*if (m_Stopwatch.ElapsedMilliseconds > 1000)
+			{*/
+            //Debug.WriteLine (String.Format ("String Cache size: {0} Draw Calls: {1} Vertex Count: {2}", renderer.TextCacheSize, renderer.DrawCallCount, renderer.VertexCount));
+            /*m_UnitTest.Note = String.Format("String Cache size: {0} Draw Calls: {1} Vertex Count: {2}", m_Renderer.TextCacheSize, m_Renderer.DrawCallCount, m_Renderer.VertexCount);*/
+            //1000f * m_Ftime.Count / m_Ftime.Sum();
+            /*
+            m_Stopwatch.Restart();
 
-				if (m_Renderer.TextCacheSize > 1000) // each cached string is an allocated texture, flush the cache once in a while in your real project
-					m_Renderer.FlushTextCache();
-			}
-		}
+            if (m_Renderer.TextCacheSize > 1000) // each cached string is an allocated texture, flush the cache once in a while in your real project
+                m_Renderer.FlushTextCache();
+        }*/
+        }
 
 		/// <summary>
 		/// Add your game rendering code here.
@@ -193,10 +197,14 @@ namespace Gwen.UnitTest.OpenTK
 		protected override void OnRenderFrame(FrameEventArgs e)
 		{
 			GL.Clear(ClearBufferMask.DepthBufferBit | ClearBufferMask.ColorBufferBit);
-			
-			m_Canvas.RenderCanvas();
-
-			SwapBuffers();
+            m_Stopwatch.Start();
+            m_Canvas.RenderCanvas();
+            m_Stopwatch.Stop();
+            int tts = (int)(1000/30-m_Stopwatch.ElapsedMilliseconds); //30 - требуемое кол-во fps
+            if(tts>0)
+                Thread.Sleep(tts);
+            m_Stopwatch.Restart();
+            SwapBuffers();
 		}
 
 		/// <summary>
