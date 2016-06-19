@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Gwen.Net Ex")]
-[assembly: AssemblyDescription("Gwen.Net Extended Layout")]
+[assembly: AssemblyTitle("Gwen.CS")]
+[assembly: AssemblyDescription("Gwen.Net User Interface")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Gwen.Net Ex")]
-[assembly: AssemblyCopyright("Copyright © 2012 Garry Newman, Copyleft © 2011 Omega Red, 2016 Kimmo Palosaari")]
+[assembly: AssemblyProduct("Gwen.CS")]
+[assembly: AssemblyCopyright("Copyright © 2012 Garry Newman, Copyleft © 2011 Omega Red, 2016 Kimmo Palosaari, 2016 Yeyti ")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
@@ -26,5 +26,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.1")]
+[assembly: AssemblyFileVersion("1.0.0.1")]
