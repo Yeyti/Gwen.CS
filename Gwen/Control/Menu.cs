@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using Gwen.Control.Internal;
 using Gwen.Control.Layout;
@@ -149,12 +151,51 @@ namespace Gwen.Control
 
 			OnAddItem(item);
 		}
+        public MenuItem AddItemPath(string text)
+        {
+            return AddItemPath(text, String.Empty);
+        }
 
-		/// <summary>
-		/// Add item handler.
-		/// </summary>
-		/// <param name="item">Item added.</param>
-		protected virtual void OnAddItem(MenuItem item)
+        public MenuItem AddItemPath(string text, string iconName, string accelerator = null){
+            var item = new MenuItem(this);
+            item.Text = text;
+            item.Padding = Padding.Three;
+            if (!String.IsNullOrWhiteSpace(iconName))
+                item.SetImage(iconName, ImageAlign.Left | ImageAlign.CenterV);
+            if (!String.IsNullOrWhiteSpace(accelerator))
+                item.SetAccelerator(accelerator);
+
+            AddItemPath(item);
+            return item;
+        }
+
+        public void AddItemPath(MenuItem item){
+
+            string[] path = item.Text.Split('\\', '/');
+            Menu m = this;
+            for (int i = 0;i<path.Length-1;i++){
+                MenuItem[] items = m.FindItems(path[i]);
+                if (items.Length == 0){
+                   m = m.AddItem(path[i]).Menu;
+                }
+                else if(items.Length==1){
+                    m = items[0].Menu;
+                }
+                else{
+                    for (int j = 0; j < items.Length; j++){
+                        if (items[j].Parent == m) m = items[j].Menu;
+                    }
+                }  
+            }
+            item.Text = path.Last();
+            m.AddItem(item);
+        }
+
+        /// <summary>
+        /// Add item handler.
+        /// </summary>
+        /// <param name="item">Item added.</param>
+        protected virtual void OnAddItem(MenuItem item)
         {
             item.TextPadding = new Padding(IconMarginDisabled ? 0 : 24, 0, 16, 0);
             item.Alignment = Alignment.CenterV | Alignment.Left;
@@ -209,7 +250,20 @@ namespace Gwen.Control
                 DelayedDelete();
             }
         }
-
+        /// <summary>
+        /// Finds all items by name in current menu.
+        /// </summary>
+	    public MenuItem[] FindItems(string name){
+            List<MenuItem> mi = new List<MenuItem>();
+            for (int i =0;i<Children.Count; i++){
+                if (Children[i] as MenuItem != null){
+                    if(((MenuItem)Children[i]).Text == name)
+                        mi.Add(Children[i]  as MenuItem);
+                }
+            }
+            return mi.ToArray();
+        }
+        
         /// <summary>
         /// Closes all submenus and the current menu.
         /// </summary>

@@ -32,8 +32,10 @@ namespace Gwen.UnitTest
 					pRoot.Menu.AddItem("\u5355\u5143\u6D4B\u8BD5").SetAction(MenuItemSelect);
 					pRoot.Menu.AddItem("\u0111\u01A1n v\u1ECB th\u1EED nghi\u1EC7m", "test16.png").SetAction(MenuItemSelect);
 				}
-
-				/* Embdedded Menu Items */
+			    {
+			        Control.MenuItem sRoot = menu.AddItemPath("File/s/d/s/s/d/f");
+			    }
+			    /* Embdedded Menu Items */
 				{
 					Control.MenuItem pRoot = menu.AddItem("Submenu");
 

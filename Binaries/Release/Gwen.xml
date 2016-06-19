@@ -5200,6 +5200,11 @@
             Closes the current menu.
             </summary>
         </member>
+        <member name="M:Gwen.Control.Menu.FindItems(System.String)">
+            <summary>
+            Finds all items by name in current menu.
+            </summary>
+        </member>
         <member name="M:Gwen.Control.Menu.CloseMenus">
             <summary>
             Closes all submenus and the current menu.
