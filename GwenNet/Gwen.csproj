@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Gwen</AssemblyName>
+    <RootNamespace>Gwen</RootNamespace>
+  </PropertyGroup>
+
+</Project>

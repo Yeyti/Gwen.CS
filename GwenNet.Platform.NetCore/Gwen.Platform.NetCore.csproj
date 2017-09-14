@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Gwen.Platform</AssemblyName>
+    <RootNamespace>Gwen.Platform</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GwenNet\Gwen.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CrossPlatform.Clipboard">
+      <HintPath>..\Libs\CrossPlatform.Clipboard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

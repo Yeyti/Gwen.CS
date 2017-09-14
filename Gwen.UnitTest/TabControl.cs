@@ -13,7 +13,7 @@ namespace Gwen.UnitTest
         {
             {
                 m_DockControl = new Control.TabControl(this);
-				m_DockControl.Margin = Margin.Five;
+				m_DockControl.Margin = Margin.Zero;
 				m_DockControl.Width = 200;
 				//m_DockControl.Height = 150;
 				m_DockControl.Dock = Dock.Top;

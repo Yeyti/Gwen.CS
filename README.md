@@ -7,11 +7,18 @@ Original GWEN can be found from https://github.com/garrynewman/GWEN and Gwen.Net
 
 ## Supported platforms
 
+tested:
 - Windows (tested on Windows 10)
-- Linux (tested on Ubuntu 14.04)
-- MAC (tested on OS X 10.11)
+
+need confirm:
+- Linux 
+- MAC 
+
+plans:
 - Android (tested on 4.4 API 19)
 - iOS (tested on iOS 9.0)
 
+
 ### Updates
-15.06.2016 : DDS Картинки
+
+14.09.2017 : Port To .Net Core 

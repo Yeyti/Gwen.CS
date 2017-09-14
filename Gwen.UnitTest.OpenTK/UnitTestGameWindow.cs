@@ -1,27 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
+using System.Net.Mime;
 using System.Threading;
-using OpenTK;
-using OpenTK.Input;
-using OpenTK.Graphics;
-using OpenTK.Graphics.OpenGL;
 using Gwen.Control;
-using Gwen.Skin;
+using Gwen.Renderer;
+using GwenNet.Platform;
+using OpenTK;
+using OpenTK.Graphics;
+using OpenTK.Graphics.OpenGL4;
+using OpenTK.Input;
 
-namespace Gwen.UnitTest.OpenTK
+namespace Gwen.UnitTest.OTK
 {
 	/// <summary>
 	/// Demonstrates the GameWindow class.
 	/// </summary>
 	public class UnitTestGameWindow : GameWindow
 	{
-		private Gwen.Renderer.OpenTK.Input.OpenTK m_Input;
-		private Gwen.Renderer.OpenTK.OpenTKBase m_Renderer;
-		private Gwen.Skin.SkinBase m_Skin;
-		private Gwen.Control.Canvas m_Canvas;
-		private Gwen.UnitTest.UnitTest m_UnitTest;
+
+	    private Renderer.OpenTK.Input.OpenTK m_Input;
+		private OpenTKBase m_Renderer;
+		private Skin.SkinBase m_Skin;
+		private Canvas m_Canvas;
+		private UnitTest m_UnitTest;
 
 		const int FpsFrames = 50;
 		private readonly List<long> m_Ftime;
@@ -119,9 +121,9 @@ namespace Gwen.UnitTest.OpenTK
 		/// <param name="e">Not used.</param>
 		protected override void OnLoad(EventArgs e)
 		{
-			GL.ClearColor(System.Drawing.Color.MidnightBlue);
+			GL.ClearColor(Color4.MidnightBlue);
 
-			Platform.Platform.Init(new Platform.Windows());
+			Platform.Platform.Init(new NetCore());
 
 			//m_Renderer = new Gwen.Renderer.OpenTK.OpenTKGL10();
 			//m_Renderer = new Gwen.Renderer.OpenTK.OpenTKGL20();
@@ -131,7 +133,7 @@ namespace Gwen.UnitTest.OpenTK
             
 			m_Skin.DefaultFont = new Font(m_Renderer, "Arial", 11);
 			m_Canvas = new Canvas(m_Skin);
-			m_Input = new Gwen.Renderer.OpenTK.Input.OpenTK(this);
+			m_Input = new Renderer.OpenTK.Input.OpenTK(this);
 			m_Input.Initialize(m_Canvas);
 
 			m_Canvas.SetSize(Width, Height);

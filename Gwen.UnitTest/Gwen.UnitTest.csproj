@@ -1,107 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{98B3D549-C3C9-4EA8-AC94-F7295B12F3DE}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gwen.UnitTest</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Gwen.UnitTest</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile24</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <ResolveNuGetPackages>false</ResolveNuGetPackages>
+    <RootNamespace>Gwen.UnitTest</RootNamespace>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\Binaries\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="project.json" />
+    <ProjectReference Include="..\GwenNet\Gwen.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AnchorLayout.cs" />
-    <Compile Include="Attributes.cs" />
-    <Compile Include="Button.cs" />
-    <Compile Include="CheckBox.cs" />
-    <Compile Include="CollapsibleList.cs" />
-    <Compile Include="ColorPickers.cs" />
-    <Compile Include="ComboBox.cs" />
-    <Compile Include="CommonDialogs.cs" />
-    <Compile Include="CrossSplitter.cs" />
-    <Compile Include="Docking.cs" />
-    <Compile Include="FlowLayout.cs" />
-    <Compile Include="GridLayout.cs" />
-    <Compile Include="GroupBox.cs" />
-    <Compile Include="GUnit.cs" />
-    <Compile Include="ImagePanel.cs" />
-    <Compile Include="Label.cs" />
-    <Compile Include="LinkLabel.cs" />
-    <Compile Include="ListBox.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="NumericUpDown.cs" />
-    <Compile Include="ProgressBar.cs" />
-    <Compile Include="Properties.cs" />
-    <Compile Include="RadioButton.cs" />
-    <Compile Include="RichLabel.cs" />
-    <Compile Include="ScrollControl.cs" />
-    <Compile Include="Slider.cs" />
-    <Compile Include="StatusBar.cs" />
-    <Compile Include="TabControl.cs" />
-    <Compile Include="TextBox.cs" />
-    <Compile Include="ToolWindow.cs" />
-    <Compile Include="TreeControl.cs" />
-    <Compile Include="UnitTest.cs" />
-    <Compile Include="Window.cs" />
-    <Compile Include="XmlComponent.cs" />
-    <Compile Include="XmlWindow.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Media\gwen.png">
-      <Link>gwen.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Media\Skins\DefaultSkin.png">
-      <Link>DefaultSkin.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Media\test16.png">
-      <Link>test16.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Gwen\Gwen.csproj">
-      <Project>{72BFB713-3E5F-4473-ADD5-31C07C148699}</Project>
-      <Name>Gwen</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

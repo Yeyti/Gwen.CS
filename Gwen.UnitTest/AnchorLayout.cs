@@ -1,6 +1,4 @@
-﻿using System;
-using Gwen.Control;
-using Gwen.Control.Layout;
+﻿using Gwen.Control;
 
 namespace Gwen.UnitTest
 {

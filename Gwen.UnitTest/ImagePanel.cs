@@ -7,38 +7,37 @@ namespace Gwen.UnitTest
 	public class ImagePanel : GUnit
     {
         public ImagePanel(ControlBase parent)
-            : base(parent)
-        {
+            : base(parent){
             /* Normal */
             {
-                Control.ImagePanel img = new Control.ImagePanel(this);
-				img.Margin = Margin.Five;
-				img.Dock = Dock.Top;
-				img.Size = new Size(100, 100);
-				img.ImageName = "tex.dds";
+                Control.ImagePanel img = new Control.ImagePanel(this){
+                    Margin = Margin.Five,
+                    Dock = Dock.Top,
+                    Size = new Size(100, 100),
+                    ImageName = "gwen.png"
+                };
             }
-
-            
-                
             
 
             /* Missing */
             {
-                Control.ImagePanel img = new Control.ImagePanel(this);
-				img.Margin = Margin.Five;
-				img.Dock = Dock.Top;
-				img.Size = new Size(100, 100);
-				img.ImageName = "missingimage.png";
+                Control.ImagePanel img = new Control.ImagePanel(this){
+                    Margin = Margin.Five,
+                    Dock = Dock.Top,
+                    Size = new Size(100, 100),
+                    ImageName = "missingimage.png"
+                };
             }
 
 			/* Clicked */
 			{
-				Control.ImagePanel img = new Control.ImagePanel(this);
-				img.Margin = Margin.Five;
-				img.Dock = Dock.Top;
-				img.Size = new Size(100, 100);
-				img.ImageName = "gwen.png";
-				img.Clicked += Image_Clicked;
+			    Control.ImagePanel img = new Control.ImagePanel(this){
+			        Margin = Margin.Five,
+			        Dock = Dock.Top,
+			        Size = new Size(100, 100),
+			        ImageName = "test16.png"
+			    };
+			    img.Clicked += Image_Clicked;
 			}
         }
 
