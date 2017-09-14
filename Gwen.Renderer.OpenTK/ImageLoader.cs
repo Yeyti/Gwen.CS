@@ -7,7 +7,8 @@ using Gwen.Control;
 
 namespace Gwen.Renderer.OpenTK
 {
-    static class ImageLoader{
+    public static class ImageLoader{
+
         public delegate Bitmap Loader(string filename);
 
         public static Dictionary<string, Loader> loaders = new Dictionary<string, Loader>(){
@@ -45,10 +46,8 @@ namespace Gwen.Renderer.OpenTK
                 }
             }
             catch (Exception e){
-                Console.WriteLine(e);
-                throw;
+                throw new Exception("Image not found: " + filename);
             }
-            
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Gwen.Renderer.OpenTK.Input
                 case global::OpenTK.Input.Key.BackSpace: return Key.Backspace;
                 case global::OpenTK.Input.Key.Enter: return Key.Return;
                 case global::OpenTK.Input.Key.KeypadEnter: return Key.Return;
-                case global::OpenTK.Input.Key.Escape: return Key.Escape;
+                case global::OpenTK.Input.Key.Escape: return Key.Escape; 
                 case global::OpenTK.Input.Key.Tab: return Key.Tab;
                 case global::OpenTK.Input.Key.Space: return Key.Space;
                 case global::OpenTK.Input.Key.Up: return Key.Up;
